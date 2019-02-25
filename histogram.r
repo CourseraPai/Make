@@ -1,7 +1,5 @@
-t<-data.frame(table(nchar(readLines("words.txt"))))
-names(t)<-c("Length","Freq")
-rownames(t)<-NULL
-
-t$Length<-as.numeric(t$Length)
-
-write.table(t,"histogram.tsv",row.names = FALSE)
+words <- readLines("words.txt")
+Length <- nchar(words)
+hist_dat <- table(Length)
+write.table(hist_dat, "histogram.tsv",
+						sep = "\t", row.names = FALSE, quote = FALSE)
